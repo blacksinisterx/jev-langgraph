@@ -95,7 +95,11 @@ The `retry` node's message originally read `retrying after failed 'decide'` — 
 
 ## Deployment
 
-Same shape as the rest of the series: Vite static build for the frontend, FastAPI as Vercel Python serverless functions for the backend. No persistence beyond the in-memory run log.
+Deploys as a single Vercel project — import this repo, no configuration needed. `vercel.json` builds the Vite frontend as the static site and auto-detects `api/index.py` as a Python serverless function; `api/index.py` mounts the existing FastAPI app under `/api` with zero route changes, so the frontend's relative `/api/*` calls work on the same domain with no separate API URL to configure.
+
+Defaults to `JEV_PROVIDER=mock` (no environment variables required to deploy). To run the deployed demo against a real Jev key, set `TYPESAFE_API_KEY` or `JEV_AGENT_KEY` and `JEV_PROVIDER` in the Vercel project's environment variables — see `.env.example`.
+
+No persistence beyond the in-memory run log.
 
 ## Screenshots
 
