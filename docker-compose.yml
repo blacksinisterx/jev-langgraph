@@ -1,0 +1,18 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8003:8000"
+    env_file:
+      - .env
+    environment:
+      - JEV_PROVIDER=${JEV_PROVIDER:-mock}
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5176:5173"
+    depends_on:
+      - backend
+    environment:
+      - BACKEND_URL=http://backend:8000

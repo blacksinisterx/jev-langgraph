@@ -1,0 +1,143 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-heading: var(--font-sans);
+    --font-sans: 'Geist Variable', sans-serif;
+    --font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace;
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --color-good: var(--status-good);
+    --color-warning: var(--status-warning);
+    --color-critical: var(--status-critical);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+    --background: #f0f0f0;
+    --foreground: #333333;
+    --card: #f5f5f5;
+    --card-foreground: #333333;
+    --popover: #f5f5f5;
+    --popover-foreground: #333333;
+    --primary: #606060;
+    --primary-foreground: #ffffff;
+    --secondary: #e0e0e0;
+    --secondary-foreground: #333333;
+    --muted: #d9d9d9;
+    --muted-foreground: #666666;
+    --accent: #c0c0c0;
+    --accent-foreground: #333333;
+    --destructive: #cc3333;
+    --destructive-foreground: #ffffff;
+    --border: #d0d0d0;
+    --input: #e0e0e0;
+    --ring: #606060;
+    --chart-1: #606060;
+    --chart-2: #476666;
+    --chart-3: #909090;
+    --chart-4: #a8a8a8;
+    --chart-5: #c0c0c0;
+    --radius: 0.35rem;
+    --sidebar: #eaeaea;
+    --sidebar-foreground: #333333;
+    --sidebar-primary: #606060;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #c0c0c0;
+    --sidebar-accent-foreground: #333333;
+    --sidebar-border: #d0d0d0;
+    --sidebar-ring: #606060;
+    /* status palette (fixed, never themed): allow / review / block verdicts */
+    --status-good: #0ca30c;
+    --status-warning: #fab219;
+    --status-critical: #d03b3b;
+}
+
+.dark {
+    --background: #1a1a1a;
+    --foreground: #d9d9d9;
+    --card: #202020;
+    --card-foreground: #d9d9d9;
+    --popover: #202020;
+    --popover-foreground: #d9d9d9;
+    --primary: #a0a0a0;
+    --primary-foreground: #1a1a1a;
+    --secondary: #303030;
+    --secondary-foreground: #d9d9d9;
+    --muted: #2a2a2a;
+    --muted-foreground: #808080;
+    --accent: #404040;
+    --accent-foreground: #d9d9d9;
+    --destructive: #e06666;
+    --destructive-foreground: #ffffff;
+    --border: #353535;
+    --input: #303030;
+    --ring: #a0a0a0;
+    --chart-1: #a0a0a0;
+    --chart-2: #7e9ca0;
+    --chart-3: #707070;
+    --chart-4: #585858;
+    --chart-5: #404040;
+    --sidebar: #1f1f1f;
+    --sidebar-foreground: #d9d9d9;
+    --sidebar-primary: #a0a0a0;
+    --sidebar-primary-foreground: #1a1a1a;
+    --sidebar-accent: #404040;
+    --sidebar-accent-foreground: #d9d9d9;
+    --sidebar-border: #353535;
+    --sidebar-ring: #a0a0a0;
+    --status-good: #0ca30c;
+    --status-warning: #fab219;
+    --status-critical: #d03b3b;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    }
+  body {
+    @apply bg-background text-foreground;
+    }
+  html {
+    @apply font-sans;
+    }
+}
