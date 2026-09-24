@@ -1,11 +1,13 @@
 {
-  "builds": [
-    { "src": "frontend/package.json", "use": "@vercel/static-build", "config": { "distDir": "dist" } },
-    { "src": "api/index.py", "use": "@vercel/python" }
-  ],
-  "routes": [
-    { "src": "/api/(.*)", "dest": "api/index.py" },
-    { "src": "/$", "dest": "/frontend/dist/index.html" },
-    { "src": "/(.*)", "dest": "/frontend/dist/$1" }
+  "framework": null,
+  "buildCommand": "cd frontend && npm install && npm run build",
+  "outputDirectory": "frontend/dist",
+  "build": {
+    "env": {
+      "PYO3_USE_ABI3_FORWARD_COMPATIBILITY": "1"
+    }
+  },
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "/api" }
   ]
 }
