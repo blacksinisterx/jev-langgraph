@@ -121,6 +121,10 @@ No persistence beyond the in-memory run log.
 
 ![Escalate scenario showing the continue loop and escalate path](docs/escalate-scenario.png)
 
+**Live Jev output** — the pure-calculation scenario run against the real API (`JEV_PROVIDER=jev_agent`, not mock): Jev picks `use_tool` at 97% confidence (1074.9ms) then `finish` at 100% confidence (805.6ms), real network latency included:
+
+![Live graph run using the real jev_agent provider](docs/calculation-scenario-live.png)
+
 ## Limitations
 
 - `search` is a small keyword lookup table, not real retrieval — it demonstrates the control-flow pattern, not a production search integration.
