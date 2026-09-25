@@ -1,6 +1,6 @@
 # LinkedIn post draft — JevLangGraph
 
-**Attach:** `dashboard.png` (the retry scenario — shows the most going on) or `escalate-scenario.png` (cleaner, shows the self-loop clearly).
+**Attach:** `calculation-scenario-live.png` — the one genuinely live shot (real Jev, not mocked: 97% then 100% confidence, real latency). `dashboard.png` (the retry scenario, mock) or `escalate-scenario.png` (mock, shows the self-loop clearly) work as richer fallbacks if you'd rather show more of the graph.
 
 ---
 
@@ -18,6 +18,8 @@ Five demo queries hit every one of Jev's 6 possible decisions:
 The dashboard shows both a static diagram of the whole graph — with the path this specific run actually took highlighted in color, everything unused fading to gray — and a numbered trace of Jev's exact decision, confidence, and latency at each step. A loopy graph can't show visit order on its own, so both views matter together.
 
 Bug I want to flag because it's a good example of what "test the graph" actually needs to cover: the retry node's log message originally read "retrying after failed 'decide'" — it grabbed the wrong array index and named the decide step itself, not the search call that actually failed. The final answer was still correct every time; only the human-readable explanation was wrong. Caught it by actually reading the trace in the browser, not just checking the graph reached the right end node. There's a regression test for it now.
+
+Ran the calculation path against the real Jev API too (not the $0 mock default) to sanity-check it end to end: same two-step trace, 97% then 100% confidence, real network latency — screenshot attached.
 
 Repo + write-up: [link]
 
